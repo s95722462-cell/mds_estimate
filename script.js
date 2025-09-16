@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sealUploadInput = document.getElementById('seal-upload-input');
     const sealPreview = document.getElementById('seal-preview');
     const saveSupplierBtn = document.getElementById('save-supplier-btn');
+    const deleteSealBtn = document.getElementById('delete-seal-btn'); // Added
+    const resetSupplierBtn = document.getElementById('reset-supplier-btn'); // Added
 
     // Product Modal Elements
     const addProductBtn = document.getElementById('add-product-btn');
@@ -322,6 +324,29 @@ document.addEventListener('DOMContentLoaded', () => {
             saveState();
             closeModal(supplierModal);
         }
+    });
+
+    deleteSealBtn.addEventListener('click', () => {
+        state.sealImage = null;
+        sealUploadInput.value = ''; // Clear file input
+        sealPreview.src = '#';
+        sealPreview.style.display = 'none';
+        renderSupplierInfo();
+        saveState();
+    });
+
+    resetSupplierBtn.addEventListener('click', () => {
+        state.supplierInfo = { company: '', businessNumber: '', contactPerson: '', phone: '' };
+        state.sealImage = null;
+        modalSupplierCompany.value = '';
+        modalBusinessNumber.value = '';
+        modalSupplierPerson.value = '';
+        modalSupplierPhone.value = '';
+        sealUploadInput.value = ''; // Clear file input
+        sealPreview.src = '#';
+        sealPreview.style.display = 'none';
+        renderSupplierInfo();
+        saveState();
     });
 
     sealUploadInput.addEventListener('change', (e) => {

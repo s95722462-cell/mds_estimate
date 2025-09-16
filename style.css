@@ -350,6 +350,16 @@ footer {
     border: none;
 }
 
+.delete-btn {
+    background-color: var(--danger-color);
+    color: var(--white-color);
+}
+
+.reset-btn {
+    background-color: #ffc107; /* A yellow/orange color for reset */
+    color: var(--text-color);
+}
+
 .save-btn {
     background-color: var(--primary-color);
     color: var(--white-color);
